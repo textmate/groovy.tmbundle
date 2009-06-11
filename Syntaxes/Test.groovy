@@ -18,10 +18,14 @@ class Test extends Object implements Serializable {
     	
     }
 
+	Test(String asdfas = "asdfasd") {
+		
+	}
+	
 	def testMethod(arg1, String typed) {
         return 6
     }
-
+	
 	def methodName(args = String) {
 		{ String asdasd = "asdasd", Integer xx = 2 -> }
 	}
@@ -64,4 +68,5 @@ public enum Blah {
 }
 
 	
+
 

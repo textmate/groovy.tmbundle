@@ -339,6 +339,14 @@
 					<array>
 						<dict>
 							<key>include</key>
+							<string>#enum-values</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#constructors</string>
+						</dict>
+						<dict>
+							<key>include</key>
 							<string>#groovy</string>
 						</dict>
 						<dict>
@@ -614,6 +622,22 @@
 				</dict>
 			</array>
 		</dict>
+		<key>constructors</key>
+		<dict>
+			<key>applyEndPatternLast</key>
+			<integer>1</integer>
+			<key>begin</key>
+			<string>(?=(?:(?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final)\s+)*\w+\()</string>
+			<key>end</key>
+			<string>}</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#method-content</string>
+				</dict>
+			</array>
+		</dict>
 		<key>enum-values</key>
 		<dict>
 			<key>patterns</key>
@@ -667,10 +691,6 @@
 				<dict>
 					<key>include</key>
 					<string>#class</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#enum-values</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -1050,28 +1070,8 @@
 				</dict>
 			</array>
 		</dict>
-		<key>methods</key>
+		<key>method-content</key>
 		<dict>
-			<key>applyEndPatternLast</key>
-			<integer>1</integer>
-			<key>begin</key>
-			<string>(?x:(?=
-                (?:
-                    (?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final) # visibility/modifier
-                        |
-                    (?:def)
-                        |
-                    (?:void|boolean|byte|char|short|int|float|long|double)
-                        |
-                    (?:(?:[a-z]\w*(?:\.))*[A-Z]+\w) # object type
-                )
-                \s+
-                [^=]+\(
-			))</string>
-			<key>end</key>
-			<string>}|(?=(^\s*)?[^{])</string>
-			<key>name</key>
-			<string>meta.definition.method.groovy</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1240,6 +1240,36 @@
 							<string>#groovy-code</string>
 						</dict>
 					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>methods</key>
+		<dict>
+			<key>applyEndPatternLast</key>
+			<integer>1</integer>
+			<key>begin</key>
+			<string>(?x:(?=
+                (?:
+                    (?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final) # visibility/modifier
+                        |
+                    (?:def)
+                        |
+                    (?:void|boolean|byte|char|short|int|float|long|double)
+                        |
+                    (?:(?:[a-z]\w*(?:\.))*[A-Z]+\w) # object type
+                )
+                \s+
+                [^=]+\(
+			))</string>
+			<key>end</key>
+			<string>}|(?=(^\s*)?[^{])</string>
+			<key>name</key>
+			<string>meta.definition.method.groovy</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#method-content</string>
 				</dict>
 			</array>
 		</dict>
