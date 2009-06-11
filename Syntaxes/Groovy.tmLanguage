@@ -341,6 +341,10 @@
 							<key>include</key>
 							<string>#groovy</string>
 						</dict>
+						<dict>
+							<key>include</key>
+							<string>#class-variables</string>
+						</dict>
 					</array>
 				</dict>
 			</array>
@@ -671,10 +675,6 @@
 				<dict>
 					<key>include</key>
 					<string>#methods</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#class-variables</string>
 				</dict>
 				<dict>
 					<key>include</key>
