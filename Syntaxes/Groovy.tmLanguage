@@ -347,17 +347,38 @@
 		</dict>
 		<key>class-variables</key>
 		<dict>
+			<key>applyEndPatternLast</key>
+			<integer>1</integer>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>\b(?!as)(?=\w[\w\[\]&lt;&gt;,]*?\s\w)</string>
+					<string>(?x:(?=
+                        (?:
+                            (?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final) # visibility/modifier
+                                |
+                            (?:def)
+                                |
+                            (?:void|boolean|byte|char|short|int|float|long|double)
+                                |
+                            (?:(?:[a-z]\w*(?:\.))*[A-Z]+\w) # object type
+                        )
+                        .*
+                        \s+
+                        [^(]+
+                        (?:=|$)
+                        
+        			))</string>
 					<key>end</key>
 					<string>;|$</string>
 					<key>name</key>
 					<string>meta.definition.class-variable.groovy</string>
 					<key>patterns</key>
 					<array>
+						<dict>
+							<key>match</key>
+							<string>\s</string>
+						</dict>
 						<dict>
 							<key>captures</key>
 							<dict>
@@ -1034,20 +1055,19 @@
 			<key>applyEndPatternLast</key>
 			<integer>1</integer>
 			<key>begin</key>
-			<string>(?x:
-			    (?&lt;!\.)\b # not preceeded by . (method call)
-			    (?!new) # not before new
-			    (?= # looking forward we see
-			        (?:
-			            (?:\w|&lt;)\S* # a word (modifier or return type) or a parameter type
-			            \s+ # some space
-			            (?:\w|&lt;)\S*[^=\.\s]*? # another word and anything but =, . or space
-			            | # or
-			            [A-Z_]\w* # a capitalised word (i.e. constructor name)
-			        )
-			        \( # and the leading parens of the params
-			    )
-			)</string>
+			<string>(?x:(?=
+                (?:
+                    (?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final) # visibility/modifier
+                        |
+                    (?:def)
+                        |
+                    (?:void|boolean|byte|char|short|int|float|long|double)
+                        |
+                    (?:(?:[a-z]\w*(?:\.))*[A-Z]+\w) # object type
+                )
+                \s+
+                [^=]+\(
+			))</string>
 			<key>end</key>
 			<string>}|(?=(^\s*)?[^{])</string>
 			<key>name</key>
