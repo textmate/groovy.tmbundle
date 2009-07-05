@@ -1169,7 +1169,7 @@
                         |
                     (?:void|boolean|byte|char|short|int|float|long|double)
                         |
-                    (?:(?:[a-z]\w*(?:\.))*[A-Z]+\w) # object type
+                    (?:(?:[a-z]\w*\.)*[A-Z]+\w*) # object type
                 )
                 \s+
                 [^=]+\(
@@ -1804,11 +1804,9 @@
                                 |
                             (?:void|boolean|byte|char|short|int|float|long|double)
                                 |
-                            (?:(?:[a-z]\w*(?:\.))*[A-Z]+\w) # object type
+                            (?:(?:[a-z]\w*\.)*[A-Z]+\w*) # object type
                         )
-                        .*
-                        \s+
-                        [^(]+
+                        [\w\d_&lt;&gt;\[\],\s]*
                         (?:=|$)
                         
         			))</string>
