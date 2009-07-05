@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Symbol List: Class Variables</string>
 	<key>scope</key>
-	<string>source.groovy meta.definition.class meta.definition.class-variable.name</string>
+	<string>source.groovy meta.definition.class meta.definition.variable.name</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>

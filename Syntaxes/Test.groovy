@@ -19,7 +19,7 @@ class Test extends Object implements Serializable {
     }
 
 	Test(String asdfas = "asdfasd") {
-		
+		def var = null
 	}
 	
 	def testMethod(arg1, String typed) {

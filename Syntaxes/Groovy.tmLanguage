@@ -349,109 +349,6 @@
 							<key>include</key>
 							<string>#groovy</string>
 						</dict>
-						<dict>
-							<key>include</key>
-							<string>#class-variables</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
-		</dict>
-		<key>class-variables</key>
-		<dict>
-			<key>applyEndPatternLast</key>
-			<integer>1</integer>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>(?x:(?=
-                        (?:
-                            (?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final) # visibility/modifier
-                                |
-                            (?:def)
-                                |
-                            (?:void|boolean|byte|char|short|int|float|long|double)
-                                |
-                            (?:(?:[a-z]\w*(?:\.))*[A-Z]+\w) # object type
-                        )
-                        .*
-                        \s+
-                        [^(]+
-                        (?:=|$)
-                        
-        			))</string>
-					<key>end</key>
-					<string>;|$</string>
-					<key>name</key>
-					<string>meta.definition.class-variable.groovy</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>match</key>
-							<string>\s</string>
-						</dict>
-						<dict>
-							<key>captures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>constant.class-variable.groovy</string>
-								</dict>
-							</dict>
-							<key>match</key>
-							<string>([A-Z_0-9]+)\s+(?=\=)</string>
-						</dict>
-						<dict>
-							<key>captures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>meta.definition.class-variable.name.groovy</string>
-								</dict>
-							</dict>
-							<key>match</key>
-							<string>(\w[^\s,]*)\s+(?=\=)</string>
-						</dict>
-						<dict>
-							<key>begin</key>
-							<string>=</string>
-							<key>beginCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>keyword.operator.assignment.groovy</string>
-								</dict>
-							</dict>
-							<key>end</key>
-							<string>$</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>#groovy-code</string>
-								</dict>
-							</array>
-						</dict>
-						<dict>
-							<key>captures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>meta.definition.class-variable.name.groovy</string>
-								</dict>
-							</dict>
-							<key>match</key>
-							<string>(\w\S*)(?=\s*($|;))</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#groovy-code</string>
-						</dict>
 					</array>
 				</dict>
 			</array>
@@ -691,6 +588,10 @@
 				<dict>
 					<key>include</key>
 					<string>#class</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#variables</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -1001,6 +902,18 @@
 					<string>(!|&amp;&amp;|\|\|)</string>
 					<key>name</key>
 					<string>keyword.operator.logical.groovy</string>
+				</dict>
+			</array>
+		</dict>
+		<key>language-variables</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\b(this|super)\b</string>
+					<key>name</key>
+					<string>variable.language.groovy</string>
 				</dict>
 			</array>
 		</dict>
@@ -1847,7 +1760,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#variables</string>
+					<string>#language-variables</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -1877,13 +1790,100 @@
 		</dict>
 		<key>variables</key>
 		<dict>
+			<key>applyEndPatternLast</key>
+			<integer>1</integer>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>match</key>
-					<string>\b(this|super)\b</string>
+					<key>begin</key>
+					<string>(?x:(?=
+                        (?:
+                            (?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final) # visibility/modifier
+                                |
+                            (?:def)
+                                |
+                            (?:void|boolean|byte|char|short|int|float|long|double)
+                                |
+                            (?:(?:[a-z]\w*(?:\.))*[A-Z]+\w) # object type
+                        )
+                        .*
+                        \s+
+                        [^(]+
+                        (?:=|$)
+                        
+        			))</string>
+					<key>end</key>
+					<string>;|$</string>
 					<key>name</key>
-					<string>variable.language.groovy</string>
+					<string>meta.definition.variable.groovy</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\s</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>constant.variable.groovy</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>([A-Z_0-9]+)\s+(?=\=)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>meta.definition.variable.name.groovy</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(\w[^\s,]*)\s+(?=\=)</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>=</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.operator.assignment.groovy</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>$</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#groovy-code</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>meta.definition.variable.name.groovy</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(\w\S*)(?=\s*($|;))</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#groovy-code</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
