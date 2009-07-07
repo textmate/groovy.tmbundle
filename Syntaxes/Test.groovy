@@ -37,7 +37,9 @@ class Test extends Object implements Serializable {
         def m = new HashMap(key1: "123", key2: "123")
         m?.equals key1: "123"
         thing.default.return // <-- don't scope keywords like default in this context
-
+		
+		recompileFrequency = System.getProperty("recompile.frequency")
+		recompileFrequency = recompileFrequency ? recompileFrequency.toInteger() : 3
         
         switch(t) {
             case m:

@@ -524,7 +524,7 @@
 			<key>applyEndPatternLast</key>
 			<integer>1</integer>
 			<key>begin</key>
-			<string>(?=(?:(?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final)\s+)*\w+\()</string>
+			<string>(?&lt;=;|^)(?=\s*(?:(?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final)\s+)*\w+\()</string>
 			<key>end</key>
 			<string>}</string>
 			<key>patterns</key>
@@ -541,10 +541,10 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>\b[A-Z0-9_]*(?=\s*(?:,|;|}|\(|$))</string>
+					<string>(?&lt;=;|^)\s*\b([A-Z0-9_]+)(?=\s*(?:,|;|}|\(|$))</string>
 					<key>beginCaptures</key>
 					<dict>
-						<key>0</key>
+						<key>1</key>
 						<dict>
 							<key>name</key>
 							<string>constant.enum.name.groovy</string>
@@ -1161,7 +1161,7 @@
 			<key>applyEndPatternLast</key>
 			<integer>1</integer>
 			<key>begin</key>
-			<string>(?x:(?=
+			<string>(?x:(?&lt;=;|^)(?=\s*
                 (?:
                     (?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final) # visibility/modifier
                         |
