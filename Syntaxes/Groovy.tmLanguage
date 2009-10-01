@@ -1167,9 +1167,16 @@
                         |
                     (?:def)
                         |
-                    (?:void|boolean|byte|char|short|int|float|long|double)
-                        |
-                    (?:(?:[a-z]\w*\.)*[A-Z]+\w*) # object type
+                    (?:
+                        (?:
+                            (?:void|boolean|byte|char|short|int|float|long|double)
+                                |
+                            (?:(?:[a-z]\w*\.)*[A-Z]+\w*) # object type
+                        )
+                        [\[\]]*
+                        (?:&lt;.*&gt;)?
+                    ) 
+                    
                 )
                 \s+
                 [^=]+\(
@@ -1274,16 +1281,8 @@
 					</array>
 				</dict>
 				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>keyword.operator.dereference.groovy</string>
-						</dict>
-					</dict>
 					<key>match</key>
-					<string>\b(?:[a-z]\w*(\.))*[A-Z]+\w*\b</string>
+					<string>\b(?:[a-z]\w*\.)*[A-Z]+\w*\b</string>
 					<key>name</key>
 					<string>storage.type.groovy</string>
 				</dict>
