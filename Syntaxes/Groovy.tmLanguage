@@ -1507,10 +1507,29 @@
 					<string>constant.character.escape.groovy</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\$\w+</string>
+					<key>applyEndPatternLast</key>
+					<integer>1</integer>
+					<key>begin</key>
+					<string>\$\w</string>
+					<key>end</key>
+					<string>(?=\W)</string>
 					<key>name</key>
 					<string>variable.other.interpolated.groovy</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\w</string>
+							<key>name</key>
+							<string>variable.other.interpolated.groovy</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>\.</string>
+							<key>name</key>
+							<string>keyword.other.dereference.groovy</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
 					<key>begin</key>
