@@ -838,7 +838,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(?=$|\)|})</string>
+					<string>(?=$|\)|}|])</string>
 					<key>name</key>
 					<string>meta.evaluation.ternary.groovy</string>
 					<key>patterns</key>
