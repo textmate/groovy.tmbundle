@@ -786,12 +786,6 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(is)\b</string>
-					<key>name</key>
-					<string>keyword.operator.is.groovy</string>
-				</dict>
-				<dict>
-					<key>match</key>
 					<string>\b(in)\b</string>
 					<key>name</key>
 					<string>keyword.operator.in.groovy</string>
