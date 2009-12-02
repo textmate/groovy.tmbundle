@@ -792,6 +792,12 @@
 				</dict>
 				<dict>
 					<key>match</key>
+					<string>\b(in)\b</string>
+					<key>name</key>
+					<string>keyword.operator.in.groovy</string>
+				</dict>
+				<dict>
+					<key>match</key>
 					<string>\?\:</string>
 					<key>name</key>
 					<string>keyword.operator.elvis.groovy</string>
