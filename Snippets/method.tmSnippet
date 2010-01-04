@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>
-{
+	<string>${1:def}${1/.+/ /}${2:method}($3) {
 	$0
-}</string>
-	<key>keyEquivalent</key>
-	<string>^{</string>
+}
+</string>
 	<key>name</key>
-	<string>next line {</string>
+	<string>method</string>
 	<key>scope</key>
 	<string>source.groovy</string>
+	<key>tabTrigger</key>
+	<string>m</string>
 	<key>uuid</key>
-	<string>FF3403B5-3C06-440C-9865-5E0301E9F665</string>
+	<string>234A3407-42D6-44FF-A3D2-6792B2503005</string>
 </dict>
 </plist>
