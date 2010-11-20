@@ -798,6 +798,12 @@
 				</dict>
 				<dict>
 					<key>match</key>
+					<string>\*\:</string>
+					<key>name</key>
+					<string>keyword.operator.spreadmap.groovy</string>
+				</dict>
+				<dict>
+					<key>match</key>
 					<string>\.\.</string>
 					<key>name</key>
 					<string>keyword.operator.range.groovy</string>
@@ -1233,7 +1239,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>\b((?:[a-z]\w*\.)*[A-Z]+\w*)&lt;</string>
+					<string>\b((?:[a-z]\w*\.)*[A-Z]+\w*[a-z]+\w*)&lt;</string>
 					<key>end</key>
 					<string>&gt;|[^\w\s,\?&lt;\[\]]</string>
 					<key>name</key>
@@ -1258,7 +1264,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>\b((?:[a-z]\w*\.)*[A-Z]+\w*)(?=\[)</string>
+					<string>\b((?:[a-z]\w*\.)*[A-Z]+\w*[a-z]+\w*)(?=\[)</string>
 					<key>end</key>
 					<string>(?=[^\]\s])</string>
 					<key>name</key>
@@ -1282,7 +1288,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:[a-z]\w*\.)*[A-Z]+\w*\b</string>
+					<string>\b(?:[a-z]\w*\.)*[A-Z]+\w*[a-z]+\w*\b</string>
 					<key>name</key>
 					<string>storage.type.groovy</string>
 				</dict>
@@ -1294,7 +1300,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>\b((?:[a-z]\w*\.)*[A-Z]+\w*)&lt;</string>
+					<string>\b((?:[a-z]\w*\.)*[A-Z]+\w*[a-z]+\w*)&lt;</string>
 					<key>end</key>
 					<string>&gt;|[^\w\s,\?&lt;\[\]]</string>
 					<key>name</key>
@@ -1327,7 +1333,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>\b(?:[a-z]\w*(\.))*[A-Z]+\w*\b</string>
+					<string>\b(?:[a-z]\w*(\.))*[A-Z]+\w*[a-z]+\w*\b</string>
 					<key>name</key>
 					<string>entity.other.inherited-class.groovy</string>
 				</dict>
