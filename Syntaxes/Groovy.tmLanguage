@@ -1177,7 +1177,7 @@
                         (?:
                             (?:void|boolean|byte|char|short|int|float|long|double)
                                 |
-                            (?:(?:[a-z]\w*\.)*[A-Z]+\w*) # object type
+                            (?:(?:[a-zA-Z]\w*\.)*[A-Z]+\w*) # object type
                         )
                         [\[\]]*
                         (?:&lt;.*&gt;)?
@@ -1288,7 +1288,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:[a-z]\w*\.)*[A-Z]+\w*[a-z]+\w*\b</string>
+					<string>\b(?:[a-zA-Z]\w*\.)*[A-Z]+\w*[a-z]+\w*\b</string>
 					<key>name</key>
 					<string>storage.type.groovy</string>
 				</dict>
