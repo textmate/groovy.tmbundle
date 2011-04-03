@@ -949,7 +949,7 @@
 		<key>method-call</key>
 		<dict>
 			<key>begin</key>
-			<string>(\w+)(\()</string>
+			<string>([\w$]+)(\()</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -1003,7 +1003,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(\w+)\s*\(</string>
+					<string>([\w$]+)\s*\(</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1109,9 +1109,9 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?=(?:\w|&lt;).*\s+(?:\w|&lt;)+\s*\()</string>
+					<string>(?=(?:\w|&lt;).*\s+(?:[\w$]|&lt;)+\s*\()</string>
 					<key>end</key>
-					<string>(?=\w+\s*\()</string>
+					<string>(?=[\w$]+\s*\()</string>
 					<key>name</key>
 					<string>meta.method.return-type.java</string>
 					<key>patterns</key>
@@ -1300,7 +1300,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>\b((?:[a-z]\w*\.)*[A-Z]+\w*[a-z]+\w*)&lt;</string>
+					<string>\b((?:[a-zA-Z]\w*\.)*[A-Z]+\w*[a-z]+\w*)&lt;</string>
 					<key>end</key>
 					<string>&gt;|[^\w\s,\?&lt;\[\]]</string>
 					<key>name</key>
@@ -1333,7 +1333,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>\b(?:[a-z]\w*(\.))*[A-Z]+\w*[a-z]+\w*\b</string>
+					<string>\b(?:[a-zA-Z]\w*(\.))*[A-Z]+\w*[a-z]+\w*\b</string>
 					<key>name</key>
 					<string>entity.other.inherited-class.groovy</string>
 				</dict>
