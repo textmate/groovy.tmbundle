@@ -564,8 +564,14 @@
 							<key>patterns</key>
 							<array>
 								<dict>
+									<key>match</key>
+									<string>,</string>
+									<key>name</key>
+									<string>punctuation.definition.seperator.parameter.groovy</string>
+								</dict>
+								<dict>
 									<key>include</key>
-									<string>#values</string>
+									<string>#groovy-code</string>
 								</dict>
 							</array>
 						</dict>
