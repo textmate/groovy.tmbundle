@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -w
+# Generates a package statement based on conventions for the name of the source directory.
+# If the root source folder name isn't matched either log a bug to get it added to the
+# default list or define an environment variable named TM_JAVA_SOURCE_FOLDER_REGEX with
+# a value of the regex to use to match folder names.
+#
+
+package = []
+package_regex = /src|tst/ # common source folder names
+package_regex = /#{ENV['TM_JAVA_SOURCE_FOLDER_REGEX']}/ if ENV['TM_JAVA_SOURCE_FOLDER_REGEX']
+
+Dir.getwd.split(File::SEPARATOR).reverse.each do |folder|
+  if folder !~ package_regex
+    package &lt;&lt; folder
+  else
+    break
+  end
+end
+
+if !package.empty?
+  puts "package #{package.reverse.join('.')}"
+end</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>Create Package Declaration</string>
+	<key>output</key>
+	<string>afterSelectedText</string>
+	<key>scope</key>
+	<string>source.groovy</string>
+	<key>tabTrigger</key>
+	<string>pa</string>
+	<key>uuid</key>
+	<string>110203B5-6B93-4F40-ACE4-8F866FA14117</string>
+</dict>
+</plist>
