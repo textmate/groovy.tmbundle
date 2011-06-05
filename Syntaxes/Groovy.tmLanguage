@@ -589,10 +589,6 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#annotations</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#class</string>
 				</dict>
 				<dict>
@@ -602,6 +598,10 @@
 				<dict>
 					<key>include</key>
 					<string>#methods</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#annotations</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -1005,6 +1005,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#annotations</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#storage-modifiers</string>
 				</dict>
 				<dict>
@@ -1183,7 +1187,7 @@
                         (?:
                             (?:void|boolean|byte|char|short|int|float|long|double)
                                 |
-                            (?:(?:[a-zA-Z]\w*\.)*[A-Z]+\w*) # object type
+                            (?:@?(?:[a-zA-Z]\w*\.)*[A-Z]+\w*) # object type
                         )
                         [\[\]]*
                         (?:&lt;.*&gt;)?
