@@ -215,6 +215,116 @@
 				</dict>
 			</array>
 		</dict>
+		<key>anonymous-classes-and-new</key>
+		<dict>
+			<key>begin</key>
+			<string>\bnew\b</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.new.groovy</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?&lt;=\)|\])(?!\s*{)|(?&lt;=})|(?=[;])|$</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(\w+)\s*(?=\[)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.type.groovy</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>}|(?=\s*(?:,|;|\)))|$</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>\[</string>
+							<key>end</key>
+							<string>\]</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#groovy</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>{</string>
+							<key>end</key>
+							<string>(?=})</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#groovy</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?=\w.*\(?)</string>
+					<key>end</key>
+					<string>(?&lt;=\))|$</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#object-types</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\(</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>storage.type.groovy</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>\)</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#groovy</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>{</string>
+					<key>end</key>
+					<string>}</string>
+					<key>name</key>
+					<string>meta.inner-class.groovy</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#class-body</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
 		<key>braces</key>
 		<dict>
 			<key>begin</key>
@@ -339,17 +449,27 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>#enum-values</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#constructors</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#groovy</string>
+							<string>#class-body</string>
 						</dict>
 					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>class-body</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#enum-values</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#constructors</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#groovy</string>
 				</dict>
 			</array>
 		</dict>
@@ -652,6 +772,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#anonymous-classes-and-new</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#keyword-operator</string>
 				</dict>
 				<dict>
@@ -736,12 +860,6 @@
 							<string>#groovy-code-minus-map-keys</string>
 						</dict>
 					</array>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>\b(new)\b</string>
-					<key>name</key>
-					<string>keyword.other.new.groovy</string>
 				</dict>
 				<dict>
 					<key>begin</key>
