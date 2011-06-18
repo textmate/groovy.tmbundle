@@ -1,0 +1,25 @@
+Installation
+============
+
+Without git
+-----------
+See [Groovy site installation instructions][groovy-install]
+
+With git
+--------
+With git installed, you can checkout the bundle from github.
+
+cd into bundle dir and clone the bundle:
+
+    cd ~/Library/Application\ Support/TextMate/Bundles/
+    git clone https://github.com/textmate/groovy.tmbundle.git
+    
+Now restart TextMate or tell it to reload bundles.
+
+    osascript -e 'tell app "TextMate" to reload bundles'
+    
+Now you're ready to go.
+    
+To update your groovy bundle, cd into the groovy bundle dir and run `git pull origin master`
+
+[groovy-install]: http://groovy.codehaus.org/TextMate
