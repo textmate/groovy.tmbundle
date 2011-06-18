@@ -1295,7 +1295,7 @@
 			<key>applyEndPatternLast</key>
 			<integer>1</integer>
 			<key>begin</key>
-			<string>(?x:(?&lt;=;|^)(?=\s*
+			<string>(?x:(?&lt;=;|^|{)(?=\s*
                 (?:
                     (?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final) # visibility/modifier
                         |
