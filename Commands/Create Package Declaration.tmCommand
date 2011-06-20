@@ -13,8 +13,8 @@
 #
 
 package = []
-package_regex = /src|tst/ # common source folder names
-package_regex = /#{ENV['TM_JAVA_SOURCE_FOLDER_REGEX']}/ if ENV['TM_JAVA_SOURCE_FOLDER_REGEX']
+package_regex = /$(src|tst)$/ # common source folder names
+package_regex = /^(#{ENV['TM_JAVA_SOURCE_FOLDER_REGEX']})$/ if ENV['TM_JAVA_SOURCE_FOLDER_REGEX']
 
 Dir.getwd.split(File::SEPARATOR).reverse.each do |folder|
   if folder !~ package_regex
