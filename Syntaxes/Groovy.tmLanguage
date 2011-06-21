@@ -644,7 +644,7 @@
 			<key>applyEndPatternLast</key>
 			<integer>1</integer>
 			<key>begin</key>
-			<string>(?&lt;=;|^)(?=\s*(?:(?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final)\s+)*\w+\()</string>
+			<string>(?&lt;=;|^)(?=\s*(?:(?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final)\s+)*[A-Z]\w*\()</string>
 			<key>end</key>
 			<string>}</string>
 			<key>patterns</key>
@@ -1126,8 +1126,23 @@
 					<string>#annotations</string>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#storage-modifiers</string>
+					<key>begin</key>
+					<string>(?=(?:\w|&lt;).*\s+(?:[\w$]|&lt;)+\s*\()</string>
+					<key>end</key>
+					<string>(?=[\w$]+\s*\()</string>
+					<key>name</key>
+					<string>meta.method.return-type.java</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#storage-modifiers</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#types</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -1237,21 +1252,6 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?=(?:\w|&lt;).*\s+(?:[\w$]|&lt;)+\s*\()</string>
-					<key>end</key>
-					<string>(?=[\w$]+\s*\()</string>
-					<key>name</key>
-					<string>meta.method.return-type.java</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#types</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
 					<string>throws</string>
 					<key>beginCaptures</key>
 					<dict>
@@ -1316,7 +1316,7 @@
                 ([^=]+\s+)?\w+\s*\(
 			))</string>
 			<key>end</key>
-			<string>}|(?=(^\s*)?[^{])</string>
+			<string>}|(?=[^{])</string>
 			<key>name</key>
 			<string>meta.definition.method.groovy</string>
 			<key>patterns</key>
