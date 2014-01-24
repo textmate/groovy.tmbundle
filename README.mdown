@@ -11,7 +11,7 @@ With git installed, you can checkout the bundle from github.
 
 cd into bundle dir and clone the bundle:
 
-    cd ~/Library/Application\ Support/TextMate/Bundles/
+    cd ~/Library/Application\ Support/TextMate/Managed/Bundles/
     git clone https://github.com/textmate/groovy.tmbundle.git
     
 Now restart TextMate or tell it to reload bundles.
