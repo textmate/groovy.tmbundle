@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -w
+	<string>#!/usr/bin/env ruby18 -w
 # Generates a package statement based on conventions for the name of the source directory.
 # If the root source folder name isn't matched either log a bug to get it added to the
 # default list or define an environment variable named TM_JAVA_SOURCE_FOLDER_REGEX with
