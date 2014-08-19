@@ -1,4 +1,4 @@
-#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby
+#!/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby
 
 require ENV["TM_SUPPORT_PATH"] + "/lib/tm/executor"
 require ENV["TM_SUPPORT_PATH"] + "/lib/tm/save_current_document"
