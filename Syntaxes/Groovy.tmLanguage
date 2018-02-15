@@ -1629,6 +1629,47 @@
 							<key>name</key>
 							<string>constant.character.escape.groovy</string>
 						</dict>
+						<dict>
+							<key>include</key>
+							<string>#string-embedded-interpolations</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\$/</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.regexp.begin.groovy</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>/\$</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.regexp.end.groovy</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.regexp.dollarslashy.groovy</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\$(?:\$|/|\$\$/|/\$\$)</string>
+							<key>name</key>
+							<string>constant.character.escape.groovy</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#string-embedded-interpolations</string>
+						</dict>
 					</array>
 				</dict>
 				<dict>
@@ -1696,48 +1737,10 @@
 				</dict>
 			</array>
 		</dict>
-		<key>string-quoted-double</key>
-		<dict>
-			<key>begin</key>
-			<string>"</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.groovy</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>"</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.groovy</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.double.groovy</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#string-quoted-double-contents</string>
-				</dict>
-			</array>
-		</dict>
-		<key>string-quoted-double-contents</key>
+		<key>string-embedded-interpolations</key>
 		<dict>
 			<key>patterns</key>
 			<array>
-				<dict>
-					<key>match</key>
-					<string>\\.</string>
-					<key>name</key>
-					<string>constant.character.escape.groovy</string>
-				</dict>
 				<dict>
 					<key>applyEndPatternLast</key>
 					<integer>1</integer>
@@ -1785,6 +1788,54 @@
 							<string>#nest_curly</string>
 						</dict>
 					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>string-quoted-double</key>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.groovy</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.groovy</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.groovy</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#string-quoted-double-contents</string>
+				</dict>
+			</array>
+		</dict>
+		<key>string-quoted-double-contents</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\.</string>
+					<key>name</key>
+					<string>constant.character.escape.groovy</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string-embedded-interpolations</string>
 				</dict>
 			</array>
 		</dict>
